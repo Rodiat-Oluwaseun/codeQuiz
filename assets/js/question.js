@@ -1,5 +1,5 @@
 
-let questions = [
+let questionsQuiz= [
     {
     numb: 1,
     question: "What's a programming language?",

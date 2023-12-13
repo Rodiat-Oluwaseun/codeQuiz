@@ -1,9 +1,14 @@
+
+
+
+let currentQuestion = 0;
+let score = 0;
 //selecting all required elements
 const time = document.querySelector("#time");
 const startScreen = document.querySelector("#start-screen");
 const startId = document.querySelector("#start");
 const question = document.querySelector("#questions");
-const choices = document.querySelector("#choices");
+const options = document.querySelector("#choices");
 const endScreen = document.querySelector("#end-screen");
 const finalScore = document.querySelector("#final-score");
 const submit= document.querySelector("#submit");
@@ -13,44 +18,52 @@ const feedBack= document.querySelector("#feedback");
 
  // function declaration
  function startQuiz(){
+    currentQuestion = 0;
+    score = 0;
+    timeLeft = 60;
+    // resultContainer.style.display = "none";
+    document.getElementById("questions").style.display = "block";
+    showQuestion();
+    // startTimer();
     
-    showQuetions(0); //calling showQestions function
-    let que_tag = '<span>'+ questions[index].numb + ". " + questions[index].question +'</span>';
-    let option_tag = '<div class="option"><span>'+ questions[index].options[0] +'</span></div>'
-    + '<div class="option"><span>'+ questions[index].options[1] +'</span></div>'
-    + '<div class="option"><span>'+ questions[index].options[2] +'</span></div>'
-    + '<div class="option"><span>'+ questions[index].options[3] +'</span></div>';
     
-    
-    const option = choices.querySelectorAll("#choices");
-    for (var i = 0; i < questions[count].options.length; i++);
     
     console.log("rain🎉✨🧨")
  }
 // if startQuiz button clicked
 startId.addEventListener("click", startQuiz);
 
-startId.onclick = ()=>{
- 
+
+function showQuestion(){
+    const currentQuizData = questionsQuiz[currentQuestion];
+    question.innerText = currentQuizData.question;
+    options.innerHTML = "";
+
+    for (let i = 0; i < currentQuizData.options.length; i++) {
+        const button = document.createElement("button");
+        button.innerText = currentQuizData.options[i];
+        button.addEventListener("click", function () {
+            checkAnswer(button.innerText);
+        });
+        options.appendChild(button);
+    }
 }
 
-let timeValue =  15;
-let count = 0;
-let que_numb = 1;
-let userScore = 0;
-let counter;
-let counterLine;
-let widthValue = 0;
+function answer(selectedOption) {
+    const currentQuizData = questionsQuiz[currentQuestion];
 
-// getting questions and options from array
-function showQuetions(index){
-    const que_text = document.querySelector("#question-title");
+    if (selectedOption=== currentQuizData[currentQuestion].answer) {
+        score++;
+        messageElement.innerText = "Correct!";
+    } else {
+        messageElement.innerText = "Wrong!";
+    }
 
-    //creating a new span and div tag for question and option and passing the value using array index
-    
+    currentQuestion++;
+
+    if (currentQuestion < questionsQuiz.length) {
+        showQuestion();
+    } else {
+        
+    }
 }
-
-
-  
-
-
