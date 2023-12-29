@@ -59,13 +59,13 @@ let questionsQuiz= [
 
      {
      numb: 6,
-     question: "Your Question is Here",
-  
+     question: "How is data saved in local stoage",
+      answer:"localStorage.setItem",
      options: [
-       "Option 1",
-       "option 2",
-       "option 3",
-       "option 4"
+      "localStorage.getItem",
+      "localStorage.setItem",
+      "localStorage.removeItem",
+      "localStorage.addItem"
     ]
    },
 ];
