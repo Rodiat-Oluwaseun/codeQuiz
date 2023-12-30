@@ -10,13 +10,13 @@ Building a timed coding quiz with multiple-choice questions
 ## Demo png:
 ![Alt text](image.png)
   
-## Live link:
+## git link:
 ```
-
+https://github.com/Rodiat-Oluwaseun
 ```
 ## Deployment:
 ```
-
+ https://rodiat-oluwaseun.github.io/codeQuiz/
 ```
 
 ## Challenges faced
